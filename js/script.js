@@ -5,29 +5,29 @@
     var closeButtons = document.querySelectorAll('.modal .close');
     var modals = document.querySelectorAll('.modal');
 
-    var showModal = function (event) {
+    var showModal = function(event) {
         event.preventDefault();
         document.querySelector('#modal-overlay').classList.add('show');
         document.querySelector(event.target.attributes.href.value).classList.add('show');
     };
 
-    modalLinks.forEach(function (item) {
+    modalLinks.forEach( function(item) {
         item.addEventListener('click', showModal);
     });
 
-    var hideModal = function (event) {
+    var hideModal = function(event) {
         event.preventDefault();
         document.querySelector('#modal-overlay').classList.remove('show');
     };
 
-    closeButtons.forEach(function(item) {
+    closeButtons.forEach( function(item) {
        item.addEventListener('click',hideModal); 
     });
 
     document.querySelector('#modal-overlay').addEventListener('click', hideModal);
 
-    modals.forEach(function(item) {
-        item.addEventListener('click',function(event) {
+    modals.forEach( function(item) {
+        item.addEventListener('click', function(event) {
             event.stopPropagation();
             modals.classList.remove('show');
             showModal();
